@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FashionDriven</title>
+    <link rel="shortcut icon" href="./assets/logo.svg" />
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
+    <!-- Modal -->
+    <div id="modal-encomenda" class="modal">
+      <!-- Conteúdo do modal -->
+      <div id="modal-content" class="modal-content"></div>
+    </div>
     <header>
       <div class="logo">
         <img src="./assets/logo.svg" alt="Logo" />
@@ -28,19 +34,19 @@
               <div class="shirts flex" data-categoria="model">
                 <div id="t-shirt" class="shirt">
                   <div class="circle">
-                    <img src="./assets/tshirt 2.svg" alt="" srcset="" />
+                    <img src="./assets/tshirt.png" alt="" srcset="" />
                   </div>
                   <p>t-shirt</p>
                 </div>
                 <div id="top-tank" class="shirt">
                   <div class="circle">
-                    <img src="./assets/tank-top 1.svg" alt="" srcset="" />
+                    <img src="./assets/Camiseta.png" alt="" srcset="" />
                   </div>
                   <p>camiseta</p>
                 </div>
                 <div id="long" class="shirt">
                   <div class="circle">
-                    <img src="./assets/long-sleeves 1.svg" alt="" srcset="" />
+                    <img src="./assets/Mangalonga.png" alt="" srcset="" />
                   </div>
                   <p>Manga longa</p>
                 </div>
@@ -50,24 +56,24 @@
           <div class="products">
             <div class="model">
               <div class="text-header">
-                <h1>Escolha o modelo</h1>
+                <h1>Escolha a gola</h1>
               </div>
               <div class="shirts flex" data-categoria="gola">
                 <div id="v-neck" class="shirt">
                   <div class="circle">
-                    <img src="./assets/v-neck (1) 1.svg" alt="" srcset="" />
+                    <img src="./assets/GolaV.png" alt="" srcset="" />
                   </div>
                   <p>gola v</p>
                 </div>
                 <div id="round" class="shirt">
                   <div class="circle">
-                    <img src="./assets/shirt 1.svg" alt="" srcset="" />
+                    <img src="./assets/GolaRedonda.png" alt="" srcset="" />
                   </div>
                   <p>gola-rendonda</p>
                 </div>
                 <div id="polo" class="shirt">
                   <div class="circle">
-                    <img src="./assets/polo-shirt (1) 1.svg" alt="" srcset="" />
+                    <img src="./assets/GolaPolo.png" alt="" srcset="" />
                   </div>
                   <p>gola-polo</p>
                 </div>
@@ -82,19 +88,19 @@
               <div class="shirts flex" data-categoria="tecido">
                 <div id="silk" class="shirt">
                   <div class="circle">
-                    <img src="./assets/silk 1.svg" alt="" srcset="" />
+                    <img src="./assets/Seda.png" alt="" srcset="" />
                   </div>
                   <p>seda</p>
                 </div>
                 <div id="cotton" class="shirt">
                   <div class="circle">
-                    <img src="./assets/organic-cotton 1.svg" alt="" srcset="" />
+                    <img src="./assets/Algodão.png" alt="" srcset="" />
                   </div>
                   <p>algodao</p>
                 </div>
                 <div id="polyester" class="shirt">
                   <div class="circle">
-                    <img src="./assets/quimica 1.svg" alt="" srcset="" />
+                    <img src="./assets/Poliester.png" alt="" srcset="" />
                   </div>
                   <p>poliester</p>
                 </div>
@@ -118,44 +124,14 @@
       </div>
       <div class="right">
         <div class="art-img">
-          <img src="./assets/Ilustração.svg" alt="" />
+          <img src="./assets/ilustração.png" alt="" />
         </div>
       </div>
     </main>
     <footer>
+      <h1 class="title">Ultimos pedidos</h1>
       <div class="container-footer">
-        <h1>Ultimos pedidos</h1>
-        <div class="cards-container">
-          <div class="card">
-            <img
-              src="./assets/kit_20_camisetas_personalizadas_2959_1_20201123161339 1.png"
-              alt=""
-            />
-            <p><span>Criador:</span> Agata</p>
-          </div>
-          <div class="card">
-            <img src="./assets/970a5fc5b76f7fc15a59470fb6528633 1.png" alt="" />
-            <p><span>Criador:</span> Agata</p>
-          </div>
-          <div class="card">
-            <img
-              src="./assets/camiseta-thrasher-flame-preto-69794 1.png"
-              alt=""
-            />
-            <p><span>Criador:</span> Agata</p>
-          </div>
-          <div class="card">
-            <img
-              src="./assets/Amora-Blusa-AMOR-A-KYLY-Menina-Escrita-Off-White-5419-3043474-1-zoom 1.png"
-              alt=""
-            />
-            <p><span>Criador:</span> Agata</p>
-          </div>
-          <div class="card">
-            <img src="./assets/94ca42dbd8802d81b39ac4d4ad4850b6 1.png" alt="" />
-            <p><span>Criador:</span> Agata</p>
-          </div>
-        </div>
+        <div id="cards-container" class="cards-container"></div>
       </div>
     </footer>
   </body>
