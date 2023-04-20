@@ -9,8 +9,7 @@ const modal = document.getElementById("modal-encomenda");
 
 
 
-// const nome = String(prompt('Qual Seu nome'))
-const nome = 'João'
+const nome = String(prompt('Qual Seu nome'))
 
 function checkSelectedElements() {
   const categorias = document.querySelectorAll(".shirts");
@@ -25,7 +24,7 @@ function checkSelectedElements() {
     button.classList.add("selecionado");
   } else {
     button.classList.remove("selecionado");
-    
+
   }
 }
 
@@ -83,7 +82,7 @@ function addToUi(id,image,autor){
   <img src="${image}"/>
   <p><span>Criador:</span> ${autor}</p>
   <h1 style="display: none;">${id}</h1>`
- 
+
   cardsContainer.appendChild(newElement);
 
   newElement.addEventListener("click", () => {
@@ -131,10 +130,10 @@ input.addEventListener('input', () => {
 loadImages()
 const form = document.getElementById('my-form');
 form.addEventListener('submit', function(event) {
-  event.preventDefault(); 
+  event.preventDefault();
   const input = document.querySelector('input[type="text"]');
   const link = input.value;
-  console.log(link); 
+  console.log(link);
   ecomendar(getElement()[0],getElement()[1],getElement()[2],link,nome)
 });
 
