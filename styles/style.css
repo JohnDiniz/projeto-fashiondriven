@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Rocker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+header {
+  width: 100%;
+  height: 89px;
+  display: flex;
+  align-items: center;
+  background: #404EED;
+}
+
+*{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #232323;
+}
+
+/* Fonts */
+.font{
+  font-family: 'New Rocker';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+  color: #FCFCFC;
+}
+
+/* Logo */
+.logo {
+  margin-right: 20px;
+  margin-left: 80px;
+}
+
+.logo img {
+  max-width: 100%;
+}
+
+/* Header Text */
+.header-text {
+  text-align: left;
+}
+.text-header{
+  margin-bottom: 10px;
+}
+
+/* Model */
+.model{
+  display: flex;
+  width: 33vw;
+  height: 150px;
+  flex-direction: column;
+  margin-bottom: 30px;
+
+}
+
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Shirts */
+.shirts {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.shirt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Circle */
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #F2F2F2;
+  border: 0.5px solid #C4C4C4;
+}
+
+.circle.selecionado{
+  border: 3px solid #404EED;
+}
+
+.circle img {
+  width: 100%;
+  height: 60%;
+}
+
+.circle p {
+  margin-top: 10px;
+}
+
+/* Main */
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.right {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  background: #404EED;
+
+}
+
+.right img {
+  width: 100%;
+  height: auto;
+}
+
+/* Input Container */
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin: 15px 0;
+  box-sizing: border-box;
+  border: none;
+  background: #F2F2F2;
+  color: #818181;
+  border-radius: 10px;
+
+}
+
+button {
+  background: #C4C4C4;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  width: 100%;
+}
+button.selecionado{
+  background: #404EED;
+}
+
+/* Footer */
+footer{
+  display: flex;
+  width: 100%;
+  height: 342px;
+  background: #F2F2F2;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto';
+  font-size: 24px;
+}
+
+.container-footer {
+  width: 83%;
+}
+
+.cards-container{
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
+.container-footer h1{
+  color: #232323;
+  margin-bottom: 15px;
+}
+
+.card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 201.69px;
+  height: 236.47px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.card img {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 8px;
+
+}
+.card span{
+  font-weight: 700;
+  font-size: 20px;
+  color: #232323;
+}
+

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FashionDriven</title>
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./assets/logo.svg" alt="Logo" />
+      </div>
+      <div class="header-text">
+        <h1 class="font">FashionDriven</h1>
+      </div>
+    </header>
+    <main>
+      <div class="left">
+        <div class="container">
+          <div class="products">
+            <div class="model">
+              <div class="text-header">
+                <h1>Escolha o modelo</h1>
+              </div>
+              <div class="shirts flex" data-categoria="model">
+                <div id="t-shirt" class="shirt">
+                  <div class="circle">
+                    <img src="./assets/tshirt 2.svg" alt="" srcset="" />
+                  </div>
+                  <p>t-shirt</p>
+                </div>
+                <div id="top-tank" class="shirt">
+                  <div class="circle">
+                    <img src="./assets/tank-top 1.svg" alt="" srcset="" />
+                  </div>
+                  <p>camiseta</p>
+                </div>
+                <div id="long" class="shirt">
+                  <div class="circle">
+                    <img src="./assets/long-sleeves 1.svg" alt="" srcset="" />
+                  </div>
+                  <p>Manga longa</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="products">
+            <div class="model">
+              <div class="text-header">
+                <h1>Escolha o modelo</h1>
+              </div>
+              <div class="shirts flex" data-categoria="gola">
+                <div id="v-neck" class="shirt">
+                  <div class="circle">
+                    <img src="./assets/v-neck (1) 1.svg" alt="" srcset="" />
+                  </div>
+                  <p>gola v</p>
+                </div>
+                <div id="round" class="shirt">
+                  <div class="circle">
+                    <img src="./assets/shirt 1.svg" alt="" srcset="" />
+                  </div>
+                  <p>gola-rendonda</p>
+                </div>
+                <div id="polo" class="shirt">
+                  <div class="circle">
+                    <img src="./assets/polo-shirt (1) 1.svg" alt="" srcset="" />
+                  </div>
+                  <p>gola-polo</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="products">
+            <div class="model">
+              <div class="text-header">
+                <h1>Escolha o modelo</h1>
+              </div>
+              <div class="shirts flex" data-categoria="tecido">
+                <div id="silk" class="shirt">
+                  <div class="circle">
+                    <img src="./assets/silk 1.svg" alt="" srcset="" />
+                  </div>
+                  <p>seda</p>
+                </div>
+                <div id="cotton" class="shirt">
+                  <div class="circle">
+                    <img src="./assets/organic-cotton 1.svg" alt="" srcset="" />
+                  </div>
+                  <p>algodao</p>
+                </div>
+                <div id="polyester" class="shirt">
+                  <div class="circle">
+                    <img src="./assets/quimica 1.svg" alt="" srcset="" />
+                  </div>
+                  <p>poliester</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-container">
+            <p>Imagem de referência</p>
+            <form id="my-form">
+              <input
+                type="text"
+                placeholder="Insira o link"
+                required
+                oninvalid="setCustomValidity('Por favor, preencha o campo obrigatório')"
+                oninput="setCustomValidity('')"
+              />
+              <button type="submit">Confirmar pedido</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="art-img">
+          <img src="./assets/Ilustração.svg" alt="" />
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container-footer">
+        <h1>Ultimos pedidos</h1>
+        <div class="cards-container">
+          <div class="card">
+            <img
+              src="./assets/kit_20_camisetas_personalizadas_2959_1_20201123161339 1.png"
+              alt=""
+            />
+            <p><span>Criador:</span> Agata</p>
+          </div>
+          <div class="card">
+            <img src="./assets/970a5fc5b76f7fc15a59470fb6528633 1.png" alt="" />
+            <p><span>Criador:</span> Agata</p>
+          </div>
+          <div class="card">
+            <img
+              src="./assets/camiseta-thrasher-flame-preto-69794 1.png"
+              alt=""
+            />
+            <p><span>Criador:</span> Agata</p>
+          </div>
+          <div class="card">
+            <img
+              src="./assets/Amora-Blusa-AMOR-A-KYLY-Menina-Escrita-Off-White-5419-3043474-1-zoom 1.png"
+              alt=""
+            />
+            <p><span>Criador:</span> Agata</p>
+          </div>
+          <div class="card">
+            <img src="./assets/94ca42dbd8802d81b39ac4d4ad4850b6 1.png" alt="" />
+            <p><span>Criador:</span> Agata</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./index.js"></script>
+</html>
