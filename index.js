@@ -8,8 +8,8 @@ const user = document.getElementById('user')
 const buttons = document.querySelectorAll('.footer-btn');
 const buttonAll = document.get
 
-// const nome = String(prompt('Qual Seu nome'))
-const nome = 'joao'
+const nome = String(prompt('Qual Seu nome'))
+// const nome = 'joao'
 
 function checkSelectedElements() {
   const categorias = document.querySelectorAll(".shirts");
