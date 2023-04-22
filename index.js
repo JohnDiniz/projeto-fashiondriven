@@ -57,26 +57,24 @@ function getElement() {
 
 
 
-
-function ecomendar(model,neck,material,link,nome) {
-  console.log('from ecomendar', model,neck,material,link,nome)
-  axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', {
-  model: model,
-  neck: neck,
-  material: material,
-  image: link,
-  owner: nome,
-  author: nome
-})
-.then(function (response) {
-  console.log('A encomenda Foi confirmada. :', response.data);
-  alert('A encomenda Foi confirmada.');
-})
-.catch(function (error) {
-  console.log('Ops, não conseguimos processar sua encomenda:', error.response.data);
-  alert('Ops, não conseguimos processar sua encomenda')
-});
+async function createOrder(model, neck, material, link, nome) {
+  try {
+    const response = await axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', {
+      model,
+      neck,
+      material,
+      image: link,
+      owner: nome,
+      author: nome
+    });
+    console.log('A encomenda Foi confirmada. :', response.data);
+    alert('A encomenda Foi confirmada.');
+  } catch (error) {
+    console.error('Ops, não conseguimos processar sua encomenda:', error.response.data);
+      alert('Ops, não conseguimos processar sua encomenda')
+  }
 }
+
 
 function addToUi(id, image, author, type) {
   const newElement = document.createElement('div');
@@ -115,7 +113,7 @@ function getOrder(ID_TO_FILTER) {
   .then(response => {
     const filteredShirt = response.data.find(shirt => shirt.id === ID_TO_FILTER);
     console.log(filteredShirt);
-    CreateModal(filteredShirt.image,filteredShirt.model,filteredShirt.neck,filteredShirt.material,nome)
+    createConfirmationModal(filteredShirt.model,filteredShirt.neck,filteredShirt.material,filteredShirt.image,nome)
   })
   .catch(error => {
     console.log(error);
@@ -152,11 +150,11 @@ form.addEventListener('submit', function(event) {
   const input = document.querySelector('input[type="text"]');
   const link = input.value;
   console.log(link);
-  ecomendar(getElement()[0],getElement()[1],getElement()[2],link,nome)
+  createConfirmationModal(getElement()[0],getElement()[1],getElement()[2],link,nome)
 });
 
 
-function CreateModal(image, model, neck, material,nome) {
+function createConfirmationModal(model, neck, material,image,nome) {
   nmodel = model === 't-shirt' ? 'T-shirt' : model === 'top-tank' ? 'Camiseta' : 'Manga longa';
   nneck = neck === 'v-neck' ? 'Gola em v' : model === 'round' ? 'gola rendonda' : 'Gola Polo';
   nmaterial = material === 'silk' ? 'Seda' : model === 'cotton' ? 'Algodão' : 'Poliester';
@@ -184,7 +182,7 @@ function CreateModal(image, model, neck, material,nome) {
   addToCartButton.addEventListener("click", function(event) {
     event.preventDefault();
     console.log("Item Confirmed");
-    ecomendar(model,neck,material,image,nome) 
+    createOrder(model,neck,material,image,nome) 
     modal.style.display = "none";
   });
 
