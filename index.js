@@ -1,13 +1,12 @@
 const circles = document.querySelectorAll(".circle");
 const input = document.querySelector('input[type="text"]');
 const button = document.querySelector('button[type="submit"]');
-
 const cardsContainer = document.getElementById('card-container')
-
 const modalcontent = document.getElementById('modal-content')
 const modal = document.getElementById("modal-encomenda");
-
 const user = document.getElementById('user')
+const buttons = document.querySelectorAll('.footer-btn');
+const buttonAll = document.get
 
 // const nome = String(prompt('Qual Seu nome'))
 const nome = 'joao'
@@ -56,6 +55,9 @@ function getElement() {
   return [idsElementosSelecionados[0],idsElementosSelecionados[1],idsElementosSelecionados[2]];
 }
 
+
+
+
 function ecomendar(model,neck,material,link,nome) {
   console.log('from ecomendar', model,neck,material,link,nome)
   axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', {
@@ -76,24 +78,37 @@ function ecomendar(model,neck,material,link,nome) {
 });
 }
 
-function addToUi(id,image,autor){
+function addToUi(id, image, author, type) {
   const newElement = document.createElement('div');
   newElement.classList.add('card');
-  newElement.innerHTML += `
-  <img src="${image}" alt="Image 1">
-  <p><span>Criador:</span> ${autor}</p>
-  <h1 style="display: none;">${id}</h1>
-  `
+  newElement.setAttribute('data-type', type); // add data-type attribute
+  newElement.innerHTML = `
+    <img src="${image}" alt="Image 1">
+    <p><span>Creator:</span> ${author}</p>
+    <h1 style="display: none;">${id}</h1>
+  `;
 
   cardsContainer.appendChild(newElement);
 
-  newElement.addEventListener("click", () => {
-    const id = newElement.querySelector("h1").textContent;
-    if (confirm()){
-      getOrder(Number(id))
+  newElement.addEventListener('click', () => {
+    const id = newElement.querySelector('h1').textContent;
+    getOrder(Number(id));
+  });
+}
+
+function filterCards(type) {
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    if (type === 'all') {
+      card.style.display = 'block'; // show all cards
+    } else if (card.dataset.type === type) {
+      card.style.display = 'block'; // show card if its data-type matches the selected type
+    } else {
+      card.style.display = 'none'; // hide card if its data-type doesn't match the selected type
     }
   });
 }
+
 
 function getOrder(ID_TO_FILTER) {
   axios.get("https://mock-api.driven.com.br/api/v4/shirts-api/shirts")
@@ -112,7 +127,8 @@ function loadImages() {
   .then(response => {
     response.data.forEach(shirt => {
       // console.log(shirt.id, shirt.model, shirt.neck, shirt.material, shirt.image, shirt.owner);
-      addToUi(shirt.id,shirt.image,shirt.owner)
+      addToUi(shirt.id,shirt.image,shirt.owner,shirt.model)
+      console.log(shirt.model)
     });
   })
   .catch(error => {
@@ -145,22 +161,7 @@ function CreateModal(image, model, neck, material,nome) {
   nneck = neck === 'v-neck' ? 'Gola em v' : model === 'round' ? 'gola rendonda' : 'Gola Polo';
   nmaterial = material === 'silk' ? 'Seda' : model === 'cotton' ? 'Algodão' : 'Poliester';
 
-  modal.style.display = "block"; // Show the modal
-  // modalcontent.innerHTML = `
-  //   <h1>Image:</h1>
-  //   <div class="imagem">
-  //     <img src="${img}" />
-  //   </div>
-  //   <div class="informacoes">
-  //     <p><strong>Nome:</strong> ${nome}</p>
-  //     <p><strong>Modelo:</strong> ${model}</p>
-  //     <p><strong>Estilo da Gola:</strong> ${neck}</p>
-  //     <p><strong>Material:</strong> ${material}</p>
-  //     <form>
-  //       <button type="submit" class="add-to-cart">Confirm</button>
-  //       <button type="button" class="cancel">Cancel</button>
-  //     </form>
-  //   `;
+  modal.style.display = "block"; 
   modalcontent.innerHTML = `
   <div class="column left-column">
   <img class="modal-image" src="${image}" alt="" />
@@ -183,7 +184,7 @@ function CreateModal(image, model, neck, material,nome) {
   addToCartButton.addEventListener("click", function(event) {
     event.preventDefault();
     console.log("Item Confirmed");
-    ecomendar(model,neck,material,image,nome) /*aaaaaaaaaaaaaaaaaaquiiiiiiiiiiiiiiiiiiiii*/
+    ecomendar(model,neck,material,image,nome) 
     modal.style.display = "none";
   });
 
@@ -196,15 +197,21 @@ function CreateModal(image, model, neck, material,nome) {
 }
 
 
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    buttons.forEach(btn => btn.classList.remove('selecionado'));
+    button.classList.add('selecionado');
+
+    const type = button.getAttribute('data-type');
+    console.log(type);
+    filterCards(type);
+  });
+});
+
+
 function init(){
   loadImages()
   user.innerHTML = `<h1>Olá, <span>${nome}</span>!</h1>`
 }
 
 init()
-
-
-
-// <img src="${image}"/>
-// <p><span>Criador:</span> ${autor}</p>
-// <h1 style="display: none;">${id}</h1>

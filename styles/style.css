@@ -303,6 +303,7 @@ footer h1{
   height: 592px;
   display: flex;
   flex-wrap: wrap; 
+  border-radius: 24px;
 }
 
 .column {
