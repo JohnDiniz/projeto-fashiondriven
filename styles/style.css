@@ -16,6 +16,7 @@ header {
   font-size: 18px;
   line-height: 21px;
   color: #232323;
+  border: none;
 }
 
 /* Fonts */
@@ -28,28 +29,51 @@ header {
   color: #FCFCFC;
 }
 
-/* Logo */
-.logo {
-  margin-right: 20px;
-  margin-left: 80px;
-}
-
-.logo img {
-  max-width: 100%;
-}
 
 /* Header Text */
-.header-text {
-  text-align: left;
+.header-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 115px;
 }
+
+.user{
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  font-family: 'Roboto';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user span{
+  color: #232323;
+  font-weight: 700;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .text-header{
   margin-bottom: 10px;
+}
+
+.user{
+  width: 248px;
+  height: 39px;
+  background: #D9D9D9;
+  border-radius: 20px;
 }
 
 /* Model */
 .model{
   display: flex;
-  width: 33vw;
+  width: 34vw;
   height: 150px;
   flex-direction: column;
   margin-bottom: 30px;
@@ -148,7 +172,7 @@ input[type="text"] {
 
 }
 
-button {
+.OderConfirm {
   background: #C4C4C4;
   color: white;
   padding: 10px 24px;
@@ -162,68 +186,89 @@ button.selecionado{
   background: #404EED;
 }
 
-/* Footer */
+/* footer */
+
 footer {
+  background-color: #f2f2f2;
+  padding: 20px;
   position: relative;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
-  margin-top: 20px;
-  margin-left: 120px;
-}
-
-.title {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  z-index: 1;
 }
 
 .container-footer {
+  margin-left: 110px;
+}
+
+footer h1{
+  margin-bottom: 10px;
+}
+
+.card-container {
+  display: flex;
   overflow-x: auto;
-  white-space: nowrap;
-  display: flex;
 }
 
-.cards-container {
-  display: flex;
-  flex-wrap: nowrap;
-  margin-bottom: 20px;
-}
-
-
-.container-footer h1{
-  color: #232323;
-  margin-bottom: 15px;
-}
-
-.card{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.card {
+  flex: 0 0 auto;
   width: 201.69px;
   height: 236.47px;
-  background: #FFFFFF;
+  margin-right: 20px;
+  background-color: #fff;
+  transition: box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
-  font-size: 20px;
-  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .card img {
+  display: block; /* make the image a block element */
   width: 180px;
   height: 180px;
-  margin-bottom: 8px;
-
+  margin: 0 auto; /* center the image horizontally */
 }
+
+.card p {
+  padding: 10px;
+  text-align: center;
+}
+
 .card span{
   font-weight: 700;
   font-size: 20px;
   color: #232323;
+} 
+
+.footer-btn{
+  width: 193px;
+  height: 34px;
+  border-radius: 10px;
+  background: #C4C4C4;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #FCFCFC;
+  margin-bottom: 20px;
+}
+.footer-btn:hover{
+  background-color: #dddddd;
+ 
+}
+.footer-btn.selecionado{
+  background: #404EED;
 }
 
-/* Estilos para o modal */
 .modal {
   display: none;
   position: fixed;
@@ -231,27 +276,88 @@ footer {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
-  overflow: auto;
+  overflow: auto; 
   background-color: rgba(0,0,0,0.4);
 }
 
+.left-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.modal-image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+
 .modal-content {
-  background-color: white;
-  margin: 10% auto;
+  background-color: #fefefe;
+  margin: 10% auto; 
   padding: 20px;
   border: 1px solid #888;
-  width: 50%;
+  width: 814px;
+  height: 592px;
+  display: flex;
+  flex-wrap: wrap; 
+}
+
+.column {
+  flex: 50%; 
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.right-column span{
+  color: #232323;
+  font-weight: 700;
+}
+
+.right-column h1 {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 56px;
+  text-align: center;
+  color: #232323;
+  margin-bottom: 24px;
+}
+
+.right-column form{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 24px;
 }
 
-button[type="submit"] {
-  margin-top: 10px;
+.confirm-btn{
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  width: 201px;
+  height: 77px;
+  background-color: #007bff;
+  color: #fff;
+  margin-bottom: 16px;
 }
 
-
-button[type="button"] {
-  margin-top: 10px;
+.cancel-btn{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  cursor: pointer;
+  border: none;
+  color: #007bff;
+  background-color: transparent;
 }
+

@@ -10,18 +10,15 @@
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
-    <!-- Modal -->
     <div id="modal-encomenda" class="modal">
-      <!-- Conteúdo do modal -->
       <div id="modal-content" class="modal-content"></div>
     </div>
     <header>
-      <div class="logo">
-        <img src="./assets/logo.svg" alt="Logo" />
-      </div>
       <div class="header-text">
+        <img src="./assets/logo.svg" alt="Logo" />
         <h1 class="font">FashionDriven</h1>
       </div>
+      <div id="user" class="user"></div>
     </header>
     <main>
       <div class="left">
@@ -117,7 +114,9 @@
                 oninvalid="setCustomValidity('Por favor, preencha o campo obrigatório')"
                 oninput="setCustomValidity('')"
               />
-              <button type="submit">Confirmar pedido</button>
+              <button class="OderConfirm" type="submit">
+                Confirmar pedido
+              </button>
             </form>
           </div>
         </div>
@@ -129,9 +128,15 @@
       </div>
     </main>
     <footer>
-      <h1 class="title">Ultimos pedidos</h1>
       <div class="container-footer">
-        <div id="cards-container" class="cards-container"></div>
+        <h1>Ultimos pedidos</h1>
+        <div class="buttons-footer">
+          <button class="footer-btn">Todos os Modelos</button>
+          <button class="footer-btn">t-shrit</button>
+          <button class="footer-btn">camiseta</button>
+          <button class="footer-btn">manga longa</button>
+        </div>
+        <div id="card-container" class="card-container"></div>
       </div>
     </footer>
   </body>

@@ -2,14 +2,15 @@ const circles = document.querySelectorAll(".circle");
 const input = document.querySelector('input[type="text"]');
 const button = document.querySelector('button[type="submit"]');
 
-const cardsContainer = document.getElementById('cards-container')
+const cardsContainer = document.getElementById('card-container')
 
 const modalcontent = document.getElementById('modal-content')
 const modal = document.getElementById("modal-encomenda");
 
+const user = document.getElementById('user')
 
-
-const nome = String(prompt('Qual Seu nome'))
+// const nome = String(prompt('Qual Seu nome'))
+const nome = 'joao'
 
 function checkSelectedElements() {
   const categorias = document.querySelectorAll(".shirts");
@@ -79,9 +80,10 @@ function addToUi(id,image,autor){
   const newElement = document.createElement('div');
   newElement.classList.add('card');
   newElement.innerHTML += `
-  <img src="${image}"/>
+  <img src="${image}" alt="Image 1">
   <p><span>Criador:</span> ${autor}</p>
-  <h1 style="display: none;">${id}</h1>`
+  <h1 style="display: none;">${id}</h1>
+  `
 
   cardsContainer.appendChild(newElement);
 
@@ -127,7 +129,7 @@ input.addEventListener('input', () => {
   }
 });
 
-loadImages()
+
 const form = document.getElementById('my-form');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -138,38 +140,54 @@ form.addEventListener('submit', function(event) {
 });
 
 
-function CreateModal(img, model, neck, material,nome) {
+function CreateModal(image, model, neck, material,nome) {
+  nmodel = model === 't-shirt' ? 'T-shirt' : model === 'top-tank' ? 'Camiseta' : 'Manga longa';
+  nneck = neck === 'v-neck' ? 'Gola em v' : model === 'round' ? 'gola rendonda' : 'Gola Polo';
+  nmaterial = material === 'silk' ? 'Seda' : model === 'cotton' ? 'Algodão' : 'Poliester';
+
   modal.style.display = "block"; // Show the modal
+  // modalcontent.innerHTML = `
+  //   <h1>Image:</h1>
+  //   <div class="imagem">
+  //     <img src="${img}" />
+  //   </div>
+  //   <div class="informacoes">
+  //     <p><strong>Nome:</strong> ${nome}</p>
+  //     <p><strong>Modelo:</strong> ${model}</p>
+  //     <p><strong>Estilo da Gola:</strong> ${neck}</p>
+  //     <p><strong>Material:</strong> ${material}</p>
+  //     <form>
+  //       <button type="submit" class="add-to-cart">Confirm</button>
+  //       <button type="button" class="cancel">Cancel</button>
+  //     </form>
+  //   `;
   modalcontent.innerHTML = `
-    <h1>Image:</h1>
-    <div class="imagem">
-      <img src="${img}" />
-    </div>
-    <div class="informacoes">
-      <p><strong>Nome:</strong> ${nome}</p>
-      <p><strong>Modelo:</strong> ${model}</p>
-      <p><strong>Estilo da Gola:</strong> ${neck}</p>
-      <p><strong>Material:</strong> ${material}</p>
+  <div class="column left-column">
+  <img class="modal-image" src="${image}" alt="" />
+  </div>
+    <div class="column right-column">
+      <h1>${nmodel} com ${nneck} de ${nmaterial}</h1>
+      <h1><span>Criador:</span> ${nome}</h1>
       <form>
-        <button type="submit" class="add-to-cart">Confirm</button>
-        <button type="button" class="cancel">Cancel</button>
+        <button type="submit" class="confirm-btn">Confirmar pedido</button>
+        <button type="button" class="cancel-btn">Cancel</button>
       </form>
+  </div>
     `;
 
   const modalForm = modalcontent.querySelector("form");
-  const addToCartButton = modalForm.querySelector(".add-to-cart");
-  const cancelButton = modalForm.querySelector(".cancel");
+  const addToCartButton = modalForm.querySelector(".confirm-btn");
+  const cancelButton = modalForm.querySelector(".cancel-btn");
 
-  // Add event listener to Add to Cart button
+  
   addToCartButton.addEventListener("click", function(event) {
     event.preventDefault();
     console.log("Item Confirmed");
-    ecomendar(model,neck,material,img,nome)
-
+    ecomendar(model,neck,material,image,nome) /*aaaaaaaaaaaaaaaaaaquiiiiiiiiiiiiiiiiiiiii*/
     modal.style.display = "none";
   });
 
-  // Add event listener to Cancel button
+ 
   cancelButton.addEventListener("click", function(event) {
     event.preventDefault();
     console.log("Modal closed");
@@ -178,4 +196,15 @@ function CreateModal(img, model, neck, material,nome) {
 }
 
 
+function init(){
+  loadImages()
+  user.innerHTML = `<h1>Olá, <span>${nome}</span>!</h1>`
+}
 
+init()
+
+
+
+// <img src="${image}"/>
+// <p><span>Criador:</span> ${autor}</p>
+// <h1 style="display: none;">${id}</h1>
